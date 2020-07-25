@@ -1,43 +1,58 @@
 class animationJS{
 	
-	constructor(selector,nombre,duracion, tipoDeAnimacion){
+	constructor(selector,nombre,duracion, tipoDeAnimacion)
+		{
 		this.selector= selector;
 		this.nombre= nombre;
 		this.duracion = duracion;
 		this.tipoDeAnimacion= tipoDeAnimacion;
-	}
-
-	startAnimation(){
-		var elemento_A_Animar= document.querySelector(this.selector);
-
-		if(this.nombre== 'fadein'){
-
-		elemento_A_Animar.animate([
-		  // keyframes
-		  {  opacity: 1 ,transform: 'translateY(0px)',}, 
-		  { opacity: 0,transform: 'translateY(-10px)',  }
-		], { 
-		  // timing options
-		  duration: this.duracion
-		});
-		setTimeout(function(){elemento_A_Animar.style.display="none";}
-				,this.duracion);
 		}
-		if(this.nombre== 'fadeout'){
+	
+		startAnimation()
+		{
+				var elemento_A_Animar = [];
 
-		elemento_A_Animar.animate([
-		  // keyframes
-		  {  opacity: 1 ,transform: 'translateY(0px)',}, 
-		  { opacity: 0,transform: 'translateY(10px)',  }
-		], { 
-		  // timing options
-		  duration: this.duracion
-		});
-		setTimeout(function(){elemento_A_Animar.style.display="none";}
-				,this.duracion);
+				for(var i=0; i < this.selector.length; i++)
+				{
+
+					elemento_A_Animar[i] = document.querySelector(this.selector[i]);
+				
+					if(this.nombre[i]== 'fadein')
+							{
+
+							elemento_A_Animar[i].animate([
+							  // keyframes
+								  {  opacity: 1 ,transform: 'translateY(0px)',}, 
+								  { opacity: 0,transform: 'translateY(-10px)',  }
+								], { 
+								  // timing options
+								  duration: this.duracion
+								});
+							}
+
+				if(this.nombre[i]== 'fadeout')
+						{
+
+						elemento_A_Animar[i].animate([
+						  // keyframes
+								  {  opacity: 1 ,transform: 'translateY(0px)',}, 
+								  { opacity: 0,transform: 'translateY(10px)',  }
+								], { 
+								  // timing options
+								  duration: this.duracion
+								});
+							elemento_A_Animar[i].addEventListener('animationend',function(){
+
+							for (var i=0; i < elemento_A_Animar.length;i++){console.log("howdie")}
+
+						});
+						}
+						
+						
+			}
 		}
-	}
 }
+		
 
 function asignarAnimacion(selector,nombre,duracion, tipoDeAnimacion){
 	var animacion= new animationJS(selector,nombre,duracion, tipoDeAnimacion);
@@ -45,14 +60,15 @@ function asignarAnimacion(selector,nombre,duracion, tipoDeAnimacion){
 }
 
 var objetoAnimado= document.querySelector('.animated-object');
+var animateJson={
+		selector:[],
+		nombre:[]
+	}
 objetoAnimado.addEventListener('click', function(){
-	asignarAnimacion(".animated-object", "fadein", 1000);
-	asignarAnimacion(".animated-object2", "fadeout", 1000);
-	asignarAnimacion(".animated-object3", "fadeout", 1000);
-})
+	animateJson.selector=[".animated-object",".animated-object2",".animated-object3"];
+	animateJson.nombre=["fadein","fadeout","fadeout"];
+	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
+});
 
-var animatesd= {
-	nombre:[document.querySelector('.animated-object')]
-}
 
-console.log(animatesd.nombre.length);
+
