@@ -7,7 +7,13 @@ class animationJS{
 		this.duracion = duracion;
 		this.tipoDeAnimacion= tipoDeAnimacion;
 		}
-	
+		disApeear(){
+			for(var i=0;i < this.selector.length; i++){
+				document.querySelector(this.selector[i]).style.display="none";
+			console.log("hey")
+			}
+			
+		}
 		startAnimation()
 		{
 				var elemento_A_Animar = [];
@@ -41,14 +47,8 @@ class animationJS{
 								  // timing options
 								  duration: this.duracion
 								});
-							elemento_A_Animar[i].addEventListener('animationend',function(){
-
-							for (var i=0; i < elemento_A_Animar.length;i++){console.log("howdie")}
-
-						});
 						}
-						
-						
+
 			}
 		}
 }
@@ -67,6 +67,7 @@ var animateJson={
 objetoAnimado.addEventListener('click', function(){
 	animateJson.selector=[".animated-object",".animated-object2",".animated-object3"];
 	animateJson.nombre=["fadein","fadeout","fadeout"];
+
 	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
 });
 
