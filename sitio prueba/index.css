@@ -99,12 +99,6 @@ body{
 		color:white;
 		text-decoration: none;
 	}
-
-	.iframeC{
-		width: 100%;
-		padding: 20px;
-		background: white;
-	}
 		@keyframes linearG{
 			from{
 				opacity: 0.2;

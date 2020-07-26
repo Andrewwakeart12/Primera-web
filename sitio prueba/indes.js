@@ -128,8 +128,6 @@ button[i].style.transform="translateY("+imgHeight/2 +"px)";
 
 window.addEventListener('load', function(){
 	configurarBan();
-	document.querySelector('iframe').width="100%";
-		document.querySelector('iframe').height="500px";
 })
 window.addEventListener('resize', function(){
 	configurarBan();
