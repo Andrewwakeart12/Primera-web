@@ -7,13 +7,7 @@ class animationJS{
 		this.duracion = duracion;
 		this.tipoDeAnimacion= tipoDeAnimacion;
 		}
-		disApeear(){
-			for(var i=0;i < this.selector.length; i++){
-				document.querySelector(this.selector[i]).style.display="none";
-			console.log("hey")
-			}
-			
-		}
+
 		startAnimation()
 		{
 				var elemento_A_Animar = [];
@@ -34,6 +28,8 @@ class animationJS{
 								  // timing options
 								  duration: this.duracion
 								});
+							setTimeout(function(){for(var i=0; i < elemento_A_Animar.length;i++){elemento_A_Animar[i].style.display="none";}}
+				,this.duracion);
 							}
 
 				if(this.nombre[i]== 'fadeout')
@@ -64,12 +60,31 @@ var animateJson={
 		selector:[],
 		nombre:[]
 	}
+
 objetoAnimado.addEventListener('click', function(){
-	animateJson.selector=[".animated-object",".animated-object2",".animated-object3"];
-	animateJson.nombre=["fadein","fadeout","fadeout"];
+	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
+	animateJson.nombre=["fadein","fadeout","fadeout","fadeout"];
 
 	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
 });
 
+document.querySelector('.animated-object2').addEventListener('click', function(){
+	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
+	animateJson.nombre=["fadeout","fadein","fadeout","fadeout"];
 
+	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
+});
 
+document.querySelector('.animated-object3').addEventListener('click', function(){
+	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
+	animateJson.nombre=["fadeout","fadeout","fadein","fadeout"];
+
+	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
+});
+
+document.querySelector('.dripple').addEventListener('click', function(){
+	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
+	animateJson.nombre=["fadeout","fadeout","fadeout","fadein"];
+
+	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
+});
