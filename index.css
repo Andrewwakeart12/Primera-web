@@ -4,9 +4,11 @@ body{
 			font-family: sans-serif;
 		}
 		.row-c{
+
 			margin: 20px;
 		}
 		.container{
+			flex-wrap: wrap;
 			display: flex;
 		}
 		.docs{
@@ -41,16 +43,31 @@ body{
 			border-top-right-radius: 25px;
 			border-top-left-radius: 25px;
 		}
-		.contenedor:hover .head::before{
-			position: absolute;
+		.ban{
+			display: none;
+		}
+		.banB{
+			animation:0.7s banB linear;
+			width: 70%;
+			font-size: 10pt;
+			padding: 10px;
+			border-style: none;
+			background: #3611ca;
+			color:white;
+			margin-bottom: 30px;
+			font-weight: 600;
+			border-radius: 3px;
+		}
+
+		.contenedor:hover .ban{
 			content: '';
-			display: flex;
+			display: block;
 			opacity: 1;
 			position: absolute;
 			width: 300px;
 			height: 100%;
 			background: linear-gradient(170deg, black, #0a0a0aad);
-			animation:1s linearG linear;
+			animation:0.7s linearG linear;
 			border-top-right-radius: 25px;
 			border-top-left-radius: 25px;
 		}
@@ -65,7 +82,21 @@ body{
 			font-weight: 600;
 			border-radius: 3px;
 		}
-
+	.navbar{
+		display: flex;
+		width: 100%;
+	}
+		.navbar ul{
+		display:inline-flex;
+		list-style: none;
+		font-size: 15pt;
+		width: 100%;
+	}
+	.navbar ul li a{
+		padding: 10px;
+		color:white;
+		text-decoration: none;
+	}
 		@keyframes linearG{
 			from{
 				opacity: 0.2;

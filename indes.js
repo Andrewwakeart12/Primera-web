@@ -88,3 +88,48 @@ document.querySelector('.dripple').addEventListener('click', function(){
 
 	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
 });
+
+function configurarBan(){
+
+var ban=document.querySelectorAll('.ban');
+var img=document.querySelectorAll('.img');
+for(var i=0; i < img.length;i++){
+	var imgWidth= img[i].width;
+	var imgHeight= img[i].height;
+
+	ban[i].style.height=imgHeight +"px";
+	ban[i].style.width=imgWidth +"px";
+}
+
+
+}
+var img=document.querySelectorAll('.contenedor');
+for(var v =0; v< img.length; v++){
+	img[v].addEventListener('mouseenter',function(){
+	var img=document.querySelectorAll('.img');
+for(var i=0; i< img.length ; i++){
+
+	var imgWidth= img[i].width;
+	var imgHeight= img[i].height;
+	imgfv=imgHeight/2 - 20;
+	imgfvf=imgHeight/2;
+	var button=document.querySelectorAll(".banB");
+	button[i].animate([{  opacity: 0,transform: 'translateY('+ imgfv +'px)'}, 
+		{ opacity:1, transform:'translateY(' + imgfvf+ 'px)'}], { 
+									  duration:1000
+								});
+button[i].style.transform="translateY("+imgHeight/2 +"px)";
+}
+}
+	
+);
+}
+
+
+window.addEventListener('load', function(){
+	configurarBan();
+})
+window.addEventListener('resize', function(){
+	configurarBan();
+})
+
