@@ -1,3 +1,7 @@
+*{
+	padding: 0;
+	margin:0;
+}
 body{
 			background:#18181a;
 			color: white;
@@ -6,6 +10,7 @@ body{
 		.row-c{
 
 			margin: 20px;
+			margin-top:80px;
 		}
 		.container{
 			flex-wrap: wrap;
@@ -85,11 +90,17 @@ body{
 			border-radius: 3px;
 		}
 	.navbar{
+		position: fixed;
 		display: flex;
 		width: 100%;
+		height: 20px;
+		transition:1s;
+		padding: 20px;
 	}
 		.navbar ul{
 		display:inline-flex;
+		align-self: end;
+		justify-content: end;
 		list-style: none;
 		font-size: 15pt;
 		width: 100%;
@@ -104,6 +115,46 @@ body{
 		width: 100%;
 		padding: 20px;
 		background: white;
+	}
+	.damn {
+		background: #2b31e89c;
+	}
+
+	.modal{
+		position: fixed;
+		z-index: 10;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+		background: rgba(0,0,0,0.5);
+		color: black;
+	}
+	.modal-content{
+		background: white;
+		margin:10% auto;
+		padding: 20px;
+		width: 70%;
+	}
+	.modal-content p{
+		font-size: 15pt;
+		padding: 20px;
+	}
+	.modal-content h1{
+		padding: 20px;
+	}
+	.closeBtn{
+		color: grey;
+		float: right;
+		font-size:30px;
+		transition:1s;
+	}
+	.closeBtn:hover,.closeBtn:focus{
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+
 	}
 		@keyframes linearG{
 			from{

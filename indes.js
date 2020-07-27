@@ -135,3 +135,30 @@ window.addEventListener('resize', function(){
 	configurarBan();
 })
 
+window.addEventListener('scroll', function(){
+	var valorScroll= window.scrollY;
+
+	var navbar=document.querySelector('.navbar');
+
+	if (valorScroll >= 92)
+	{
+		navbar.classList.add("damn")
+	}
+	if (valorScroll <= 92)
+	{
+		navbar.classList.toggle('damn');
+	}
+})
+
+
+function dissmiaseModal(){
+
+	animateJson.selector=[".modal-content"];
+	animateJson.nombre=["fadeout"];
+	console.log("hey");
+	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
+	setTimeout(function(){
+		var modal=document.querySelector('.modal');
+		modal.style.display="none";
+	},1000)
+}
