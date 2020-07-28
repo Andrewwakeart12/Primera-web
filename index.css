@@ -16,6 +16,7 @@ body{
 			flex-wrap: wrap;
 			display: flex;
 			align-items:flex-start;
+			justify-content: center;
 		}
 		.docs{
 			width: 200px;
@@ -89,6 +90,10 @@ body{
 			font-weight: 600;
 			border-radius: 3px;
 		}
+		.dripple:hover , .banB:hover{
+			transition: 1s;
+			background: #542cf3;
+		}
 	.navbar{
 		position: fixed;
 		display: flex;
@@ -155,8 +160,16 @@ body{
 	.closeBtn:hover,.closeBtn:focus{
 		color: black;
 		text-decoration: none;
+		color:coral;
 		cursor: pointer;
 
+	}
+	.imgBan{
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+	}
+	.tm{
+		margin-top: 17px;
 	}
 		@keyframes linearG{
 			from{

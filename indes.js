@@ -80,7 +80,7 @@ class creacionDeElemento{
 				<div class="closeBtn" onclick="dissmiaseModal()">&times;</div>
 				<h1>hola soy un modal</h1>
 			</div>
-			<img src="${this.src[0]}" alt="">
+			<img src="${this.src[0]}" class="imgBan" alt="">
 		
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas amet labore ad, sunt asperiores corporis ipsa, a alias ea et.</p>
 			</div>
