@@ -1,3 +1,4 @@
+//clase que integra animaciones
 class animationJS{
 	
 	constructor(selector,nombre,duracion, tipoDeAnimacion)
@@ -10,13 +11,11 @@ class animationJS{
 
 		startAnimation()
 		{
-				var elemento_A_Animar = [];
-
+					var elemento_A_Animar = [];
 				for(var i=0; i < this.selector.length; i++)
 				{
-
 					elemento_A_Animar[i] = document.querySelector(this.selector[i]);
-				
+					
 					if(this.nombre[i]== 'fadein')
 							{
 
@@ -62,7 +61,7 @@ class animationJS{
 		}
 }
 
-
+//clase para elementos estandarizados que deben mostrarse en respuesta a una accion
 class creacionDeElemento{
 	constructor(elemento,src,selector){
 		this.elemento = elemento;
@@ -115,39 +114,12 @@ function asignarAnimacion(selector,nombre,duracion, tipoDeAnimacion){
 	animacion.startAnimation();
 }
 
-var objetoAnimado= document.querySelector('.animated-object');
 var animateJson={
 		selector:[],
 		nombre:[]
 	}
 
-objetoAnimado.addEventListener('click', function(){
-	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
-	animateJson.nombre=["fadein","fadeout","fadeout","fadeout"];
 
-	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
-});
-
-document.querySelector('.animated-object2').addEventListener('click', function(){
-	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
-	animateJson.nombre=["fadeout","fadein","fadeout","fadeout"];
-
-	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
-});
-
-document.querySelector('.animated-object3').addEventListener('click', function(){
-	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
-	animateJson.nombre=["fadeout","fadeout","fadein","fadeout"];
-
-	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
-});
-
-document.querySelector('.dripple').addEventListener('click', function(){
-	animateJson.selector=[".animated-object",".animated-object2",".animated-object3",".contenedor"];
-	animateJson.nombre=["fadeout","fadeout","fadeout","fadein"];
-
-	asignarAnimacion(animateJson.selector, animateJson.nombre, 1000);
-});
 
 function configurarBan(){
 
@@ -211,7 +183,7 @@ window.addEventListener('scroll', function(){
 	}
 })
 
-
+//modal, configuracion del boton, animaciones y desactivacion
 function dissmiaseModal(){
 
 	animateJson.selector=[".modal-content"];
