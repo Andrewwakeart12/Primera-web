@@ -108,13 +108,12 @@ var creacionDeElemento = /** @class */ (function () {
             div.style.display = "initial";
             document.querySelector('.container').appendChild(div);
             console.log('se crea');
-            //selector:any,duracion:number,config:string,prefab:string,dA?:dA,interpolacion?:string,keyFrameUno?:keyFrames,keyFrameDos?:keyFrames
         }
         asignarAnimacion(['.modal-content'], 1000, 'individual', 'fadeinIn');
     };
     return creacionDeElemento;
 }());
-var dm;
+var dm = { selector: '', animacion: '' };
 var interactible = document.querySelectorAll('.dripple');
 for (var d = 0; d < interactible.length; d++) {
     interactible[d].addEventListener('click', function (e) {
@@ -122,7 +121,7 @@ for (var d = 0; d < interactible.length; d++) {
             selector: e.srcElement.parentNode.parentNode,
             animacion: 'fadeout'
         };
-        var animation = new controladorAnimationPlural(['.row-c'], 1000, 'plural', 'fadein');
+        var animation = new controladorAnimationPlural(['.row-c'], 1000, 'plural', null, dm);
         animation.startAnimation();
     });
 }
