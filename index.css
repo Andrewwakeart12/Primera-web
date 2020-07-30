@@ -171,6 +171,9 @@ body{
 	.tm{
 		margin-top: 17px;
 	}
+	.body p{
+		text-align: left;
+	}
 		@keyframes linearG{
 			from{
 				opacity: 0.2;
