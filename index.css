@@ -101,6 +101,7 @@ body{
 		height: 20px;
 		transition:1s;
 		padding: 20px;
+		z-index: 4;
 	}
 		.navbar ul{
 		display:inline-flex;

@@ -1,7 +1,6 @@
 var controladorAnimationPlural = /** @class */ (function () {
-    function controladorAnimationPlural(selector, duracion, config, prefab, dA, interpolacion, keyFrameUno, keyFrameDos) {
-        this.keyframeUno = keyFrameUno;
-        this.keyframeDos = keyFrameDos;
+    function controladorAnimationPlural(selector, duracion, config, prefab, dA, interpolacion, keyFrames) {
+        this.keyframes = keyFrames;
         this.selector = selector;
         this.interpolacion = interpolacion;
         this.duracion = duracion;
@@ -13,7 +12,7 @@ var controladorAnimationPlural = /** @class */ (function () {
         if (this.config == 'individual') {
             if (this.prefab == null) {
                 var selector = document.querySelector(this.selector);
-                selector.animate([this.keyframeUno.propUno, this.keyframeDos.propDos], this.duracion);
+                selector.animate([this.keyframes.propUno, this.keyframes.propDos], this.duracion);
             }
             else {
                 var elemento_A_Animar = [];
@@ -233,3 +232,33 @@ for (var v = 0; v < img.length; v++) {
         }
     });
 }
+var contadorI = 1;
+function actualizarSlide() {
+    var sI = document.querySelector('.sliderSI');
+    if (contadorI <= 3) {
+        sI.src = "s" + contadorI + '.png';
+        console.log(contadorI);
+        var objectConfigAn = {
+            propUno: {
+                opacity: 1,
+                transform: 'translateX(0)'
+            }, propDos: {
+                opacity: 0,
+                transform: 'translateX(-20px)'
+            }
+        };
+        var imfW = window.innerWidth;
+        document.querySelector('.slider').style.width = imfW + 'px';
+        //selector:any,duracion:number,config:string,prefab:string,dA?:dA,interpolacion?:string,keyFrames?:keyFrames
+        var animation = new controladorAnimationPlural(['.sliderSI'], time, 'individual', null, null, null, objectConfigAn);
+        animation.startAnimation();
+        contadorI++;
+    }
+    else {
+        contadorI = 1;
+        setTimeout(actualizarSlide, time);
+    }
+    setTimeout(actualizarSlide, time);
+}
+var time = 2000;
+window.addEventListener('load', function () { setTimeout(actualizarSlide, time); });
